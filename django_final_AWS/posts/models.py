@@ -13,7 +13,7 @@ class Post(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to="post/", default="default.gif")
     likes = models.ManyToManyField(User, related_name="like_posts", blank=True)  # relate_name
-    published_data = models.DateTimeField(default=timezone.now)
+    published_data = models.DateTimeField(default=timezone.now) # python manage.py makemigrations 와 migrate 꼭하기 
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
